@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="referrer" content="no-referrer">
+<title>Sweetfil3d Studio - Autorización</title>
+<style>body{font-family:system-ui,sans-serif;max-width:720px;margin:40px auto;padding:0 16px;line-height:1.6;color:#222;background:#fff}
+code{display:block;word-break:break-all;background:#f3f3f3;padding:12px;border-radius:8px;font-size:15px}</style></head>
+<body>
+<h1>Sweetfil3d Studio</h1>
+<p id="msg">Esta página solo muestra el código de autorización de TikTok para copiarlo en Jarvis. No envía nada a ningún sitio.</p>
+<code id="code"></code>
+<script>
+  // Solo lee la URL y la muestra en pantalla: no hay peticiones de red ni almacenamiento.
+  const p = new URLSearchParams(location.search);
+  const code = p.get("code"), err = p.get("error");
+  document.getElementById("code").textContent = code ? code + "   state=" + (p.get("state") || "") : (err ? "Error: " + err : "(sin código)");
+  if (code) document.getElementById("msg").textContent = "Copia este código y pégalo en la terminal de Jarvis (caduca en unos minutos):";
+</script>
+</body>
+</html>
